@@ -3,7 +3,9 @@
     <!-- 顶部Header区域 -->
     <mt-header fixed title="Vue项目"></mt-header>    
     <!-- 内容区域 -->
-    <router-view></router-view>
+	<transition>
+		<router-view></router-view>
+	</transition>   
     <!-- 底部导航区域 -->
     <nav class="mui-bar mui-bar-tab">
 		<router-link class="mui-tab-item" to="/home">
@@ -33,5 +35,19 @@ export default {
 <style scoped>
   .box{
     padding-top:40px; 
+	overflow-x: hidden;
+	padding-bottom: 50px;
+  }
+  .v-enter-active,.v-leave-active{
+	transition: all 0.5s ease;
+  }
+  .v-enter{
+	opacity: 0;
+	transform: translateX(100%); 
+  }
+  .v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%); 
+	position: absolute;
   }
 </style>
